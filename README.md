@@ -1,1 +1,58 @@
-# alarmeincendio
+# Alarme de Incêndio com Raspberry Pi Pico
+
+## 📌 Descrição do Projeto
+Este projeto implementa um **sistema de alarme de incêndio** utilizando a **Raspberry Pi Pico**, um **buzzer**, um **LED vermelho** e dois **botões físicos** para simular a detecção de fumaça e o acionamento manual do alarme. Quando a detecção de fumaça é simulada, o sistema emite uma mensagem via **serial** e, caso o botão de alarme seja pressionado, o sistema **aciona um alerta sonoro e visual**.
+
+## 🛠️ Componentes Utilizados
+- **Microcontrolador:** Raspberry Pi Pico
+- **LED vermelho:** Indica o estado do alarme
+- **Buzzer:** Emite um alerta sonoro ao detectar um incêndio
+- **Botão A:** Simula a detecção de fumaça
+- **Botão B:** Aciona manualmente o alarme
+- **Fios jumper** para conexões
+- **Protoboard** para montagem
+
+## ⚙️ Funcionamento
+O código principal funciona da seguinte forma:
+1. **Inicialização dos componentes**: O LED, o buzzer e os botões são configurados.
+2. **Monitoramento dos botões**:
+   - Se o **botão A** for pressionado, é exibida uma mensagem informando a detecção de fumaça.
+   - Se o **botão B** for pressionado, o **alarme é acionado**.
+3. **Alarme de Incêndio**:
+   - O **LED vermelho** pisca continuamente.
+   - O **buzzer toca uma sirene** com diferentes frequências para alertar sobre o incêndio.
+   - O alerta continua por **10 ciclos**, podendo ser interrompido ao resetar a placa.
+
+## 🔌 Ligações
+| Componente    | Pino GPIO |
+|--------------|----------|
+| Botão A      | GPIO 5   |
+| Botão B      | GPIO 6   |
+| LED Vermelho | GPIO 13  |
+| Buzzer       | GPIO 21  |
+
+## 📜 Código Fonte
+O código principal está estruturado da seguinte maneira:
+- **Funções principais:**
+  - `setup()`: Inicializa os componentes.
+  - `loop()`: Monitora os botões e aciona os alarmes conforme necessário.
+- **Funções auxiliares:**
+  - `iniciar_led_red()`, `acionar_led_red()`, `desligar_led_red()` – Controle do LED vermelho.
+  - `iniciar_buzzer()`, `tocar_nota()`, `tocar_alarme_incendio()` – Controle do buzzer e sirene.
+  - `verificar_botao_A()`, `verificar_botao_B()` – Implementação de **debouncing** para evitar leituras erradas dos botões.
+
+## 📦 Como Executar o Projeto
+1. **Montar o circuito** conforme as ligações mencionadas.
+2. **Compilar e carregar o código** na Raspberry Pi Pico.
+3. **Monitorar a saída serial** para verificar mensagens de alerta.
+4. **Pressionar os botões** para testar a detecção de fumaça e o acionamento do alarme.
+
+## 🔧 Melhorias Futuras
+- Adicionar um sensor real de fumaça (MQ-2, MQ-135, etc.).
+- Implementar conexão Wi-Fi para enviar alertas remotos via Telegram ou e-mail.
+- Incluir um display OLED para exibir mensagens de status.
+
+---
+
+✉️ **Autor:** Victor Weverthon (Desenvolvedor do projeto)
+
