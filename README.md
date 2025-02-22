@@ -52,6 +52,58 @@ O código principal está estruturado da seguinte maneira:
 - Implementar conexão Wi-Fi para enviar alertas remotos via Telegram ou e-mail.
 - Incluir um display OLED para exibir mensagens de status.
 
+## Utilizando o Wokwi Simulator
+
+### No Site do Wokwi
+
+1. Acesse [Wokwi Simulator](https://wokwi.com/).
+2. Crie um novo projeto e selecione a placa **Raspberry Pi Pico**.
+3. Importe o código para a área de edição.
+4. Adicione os componentes ao circuito e conecte-os aos pinos correspondentes.
+5. Inicie a simulação para verificar o funcionamento.
+
+### No VSCode
+
+1. Instale a extensão **Wokwi Simulator**.
+2. Abra o repositório no VSCode.
+3. Configure os arquivos `diagram.json` e `wokwi.toml` para o projeto.
+4. Execute a simulação diretamente no editor.
+
+---
+
+## Configurações para Compilação
+
+### Alterando o Caminho do `pico-sdk`
+
+1. Localize o diretório onde o `pico-sdk` está instalado.
+2. No arquivo `CMakeLists.txt`, altere o caminho do `pico-sdk`:
+
+```cmake
+set(PICO_SDK_PATH "/caminho/para/o/seu/pico-sdk" CACHE STRING "Pico SDK directory")
+```
+3. Salve e execute o CMake para compilar o projeto.
+
+---
+
+## Como Contribuir
+
+1. Clone o repositório:
+
+```bash
+git clone https://github.com/victorw29/alarmeincendio
+```
+
+2. Faça suas alterações e envie um **pull request**.
+3. Siga as boas práticas de desenvolvimento e documentação.
+
+---
+
+## Links Úteis
+
+- [Projeto no Wokwi] https://wokwi.com/projects/423437352174661633
+
+- [Vídeo no YouTube] 
+
 ---
 
 ✉️ **Autor:** Victor Weverthon (Desenvolvedor do projeto)
